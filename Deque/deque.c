@@ -1,7 +1,5 @@
 #include "deque.h"
 
-// Stack implementada como lista encadeada.
-
 Node* init(int value) {
   Node* node = malloc(sizeof(Node));
   node->next = node;
