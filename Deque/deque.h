@@ -1,8 +1,5 @@
 // Felipe G. - 2021
 
-// Inclui a estrutura Node que serve tanto para Stacks e 
-// Queues.
-
 #include "malloc.h"
 #include <stdio.h>
 
@@ -19,21 +16,26 @@ typedef struct node {
     int size; 
 } Node;
 
-// Uma Queue é uma estrutura de dado do tipo FIFO ( First in 
-// First out) e isso faz com que seja O(1) a entrada e retirada de
-// elementos da queue.
+// Uma Deque é uma estrutura de dados que voce pode 
+// Inserir e deletar do fim ou do inicio.
 
-// Cria uma queue com um elemento e apontando pra NULL
+// Cria uma deque com um elemento e apontando pra NULL
 Node* init(int value);
 
-// Coloca um elemento no topo da queue
+// Coloca um elemento no topo da deque
 void push(Node* list, int value);
 
-// Remove alguma coisa do topo da queue
-Node* pop(Node* list);
+// Remove alguma coisa do fim da deque
+void pop(Node* list);
 
-// retorna o topo da queue
+// Remove alguma coisa do topo da deque
+Node* shift(Node* list);
+
+// Adiciona algo no inicio da deque
+Node* unshift(Node* list, int value);
+
+// retorna o topo da deque
 int top(Node* list);
 
-// imprime a queue para a tela.
+// imprime a deque para a tela.
 void print(Node* list);

@@ -2,3 +2,4 @@ CMakeCache.txt
 *.cmake
 Makefile
 build
+.vscode

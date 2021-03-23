@@ -1,4 +1,4 @@
-#include "queue.h"
+#include "deque.h"
 
 // Stack implementada como lista encadeada.
 
@@ -13,7 +13,7 @@ Node* init(int value) {
 
 void push(Node* list, int value) {
   Node* node = malloc(sizeof(Node));
-  node->prev = list;
+  node->prev = list->prev;
   node->next = list;
   node->value = value;
   list->prev->next = node;
@@ -21,12 +21,30 @@ void push(Node* list, int value) {
   list->size += 1;
 }
 
-Node* pop(Node* list) {
+void pop(Node* list) {
+  list->prev->prev->next = list;
+  free(list->prev);
+  list->prev = list->prev->prev;
+  list->size -= 1;
+}
+
+Node* shift(Node* list) {
   Node* next = list->next;
   next->prev = list->prev;
   next->size = list->size-1;
   free(list);
   return next;
+}
+
+Node* unshift(Node* list, int value) {
+  Node* node = malloc(sizeof(Node));
+  node->prev = list->prev;
+  node->next = list;
+  node->value = value;
+  node->size = list->size + 1;
+  list->prev->next = node;
+  list->prev = node;
+  return node;
 }
 
 int top(Node* list) {
