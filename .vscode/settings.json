@@ -1,5 +1,15 @@
 {
     "files.associations": {
-        "queue.h": "c"
+        "queue.h": "c",
+        "bitset": "c",
+        "vector": "c",
+        "memory": "c",
+        "optional": "c",
+        "string_view": "c",
+        "string": "c",
+        "system_error": "c",
+        "thread": "c",
+        "typeindex": "c",
+        "variant": "c"
     }
 }
