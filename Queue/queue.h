@@ -1,8 +1,5 @@
 // Felipe G. - 2021
 
-// Inclui a estrutura Node que serve tanto para Stacks e 
-// Queues.
-
 #include "malloc.h"
 #include <stdio.h>
 

@@ -13,7 +13,7 @@ Node* init(int value) {
 
 void push(Node* list, int value) {
   Node* node = malloc(sizeof(Node));
-  node->prev = list;
+  node->prev = list->prev;
   node->next = list;
   node->value = value;
   list->prev->next = node;
