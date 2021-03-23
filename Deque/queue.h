@@ -12,10 +12,6 @@
 // referencia ao proximo nó da lista,
 // uma referencia ao nó anterior
 // e o tamanho .
-
-// provavelmente essa queue está na categoria
-// de Circular queue pelo código.
-
 typedef struct node {
     int value;  
     struct node* next; 
