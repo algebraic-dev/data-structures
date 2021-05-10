@@ -20,22 +20,22 @@ typedef struct node {
 // Inserir e deletar do fim ou do inicio.
 
 // Cria uma deque com um elemento e apontando pra NULL
-Node* init(int value);
+Node* deque_init(int n);
 
 // Coloca um elemento no topo da deque
-void push(Node* list, int value);
+void deque_push(Node* list, int value);
 
 // Remove alguma coisa do fim da deque
-void pop(Node* list);
+int deque_pop(Node* list);
 
 // Remove alguma coisa do topo da deque
-Node* shift(Node* list);
+Node* deque_shift(Node* list);
 
 // Adiciona algo no inicio da deque
-Node* unshift(Node* list, int value);
+Node* deque_unshift(Node* list, int value);
 
 // retorna o topo da deque
-int top(Node* list);
+int deque_top(Node* list);
 
 // imprime a deque para a tela.
-void print(Node* list);
+void deque_print(Node* list);

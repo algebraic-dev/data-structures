@@ -1,55 +1,66 @@
 #include "deque.h"
 
-Node* init(int value) {
+Node* deque_init(int n) {
   Node* node = malloc(sizeof(Node));
   node->next = node;
   node->prev = node;
-  node->value = value;    
-  node->size = 1;
+  node->value = n;    
+  node->size = 0;
   return node;
 }
 
-void push(Node* list, int value) {
+void deque_push(Node* list, int value) {
   Node* node = malloc(sizeof(Node));
-  node->prev = list->prev;
+  
   node->next = list;
+  node->prev = list->prev;
   node->value = value;
+  
   list->prev->next = node;
   list->prev = node;
   list->size += 1;
 }
 
-void pop(Node* list) {
-  list->prev->prev->next = list;
-  free(list->prev);
-  list->prev = list->prev->prev;
-  list->size -= 1;
+int deque_pop(Node* list) {
+  if(list->size == 0){
+    return 0;
+  } else {
+    int value = list->prev->value;
+    Node* last = list->prev->prev;
+    free(list->prev);
+    list->prev = last;
+    list->size -= 1;
+    return value;
+  }
 }
 
-Node* shift(Node* list) {
+Node* deque_shift(Node* list) {
   Node* next = list->next;
   next->prev = list->prev;
-  next->size = list->size-1;
+  list->prev->next = next;
   free(list);
+  
   return next;
 }
 
-Node* unshift(Node* list, int value) {
+Node* deque_unshift(Node* list, int value) {
   Node* node = malloc(sizeof(Node));
-  node->prev = list->prev;
+  
   node->next = list;
+  node->prev = list->prev;
   node->value = value;
-  node->size = list->size + 1;
+  
   list->prev->next = node;
   list->prev = node;
+  list->size += 1;
   return node;
 }
 
-int top(Node* list) {
+int deque_top(Node* list) {
   return list->value;
 }
 
-void print(Node* list) {
+void deque_print(Node* list) {
   printf("[");
   Node* actual = list;
   for(int i = 0; i < list->size; i++){  
@@ -60,4 +71,8 @@ void print(Node* list) {
     }
   }
   printf("]\n\r");
+}
+
+int deque_get(Node* list, int index){
+  return 0;
 }
